@@ -3,29 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
 ---
 
-<Layout title="Products — Zurhaar Tools" description="Browse all AI-powered tools, browser extensions, scripts, and templates by Andreas Zurhaar.">
+<Layout title="Products — Zurhaar Tools" description="Browse all tools, browser extensions, scripts, and templates by Andreas Zurhaar.">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="mb-12">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Products</h1>
       <p class="text-lg text-text-muted max-w-2xl">
-        AI-powered extensions, scripts, templates, and tools. New products added regularly.
+        Extensions, scripts, templates, and tools to save you time. New products added regularly.
       </p>
     </div>
 
     <!-- Filter tabs -->
     <div class="flex flex-wrap gap-2 mb-8">
-      <span class="px-3 py-1.5 text-sm font-medium bg-primary text-white rounded-full">All</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-gray-100 rounded-full hover:bg-gray-200 cursor-pointer transition-colors">Extensions</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-gray-100 rounded-full hover:bg-gray-200 cursor-pointer transition-colors">Scripts</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-gray-100 rounded-full hover:bg-gray-200 cursor-pointer transition-colors">Templates</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-gray-100 rounded-full hover:bg-gray-200 cursor-pointer transition-colors">Tools</span>
+      <span class="px-3 py-1.5 text-sm font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full">All</span>
+      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Extensions</span>
+      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Scripts</span>
+      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Templates</span>
+      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Tools</span>
     </div>
 
     <!-- Product grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <ProductCard
         title="ToS Scanner"
-        description="AI-powered browser extension that scans Terms of Service and Privacy Policies, highlighting dangers in plain language."
+        description="Browser extension that scans Terms of Service and Privacy Policies, highlighting dangers in plain language."
         category="extension"
         comingSoon={true}
       />
@@ -44,7 +44,7 @@ import ProductCard from '../components/ProductCard.astro';
     </div>
 
     <div class="mt-16 text-center">
-      <p class="text-text-muted">More products coming soon. Follow along on <a href="https://github.com/andreaszurhaar" class="text-primary hover:text-primary-dark transition-colors">GitHub</a>.</p>
+      <p class="text-text-muted">More products coming soon. Follow along on <a href="https://github.com/andreaszurhaar" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">GitHub</a>.</p>
     </div>
   </section>
 </Layout>
