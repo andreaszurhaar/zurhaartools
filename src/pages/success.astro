@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Purchase Complete — Zurhaar Tools" description="Your purchase was successful. Here is your license key.">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-lg mx-auto text-center">
+      <div class="w-16 h-16 bg-green-500/20 border border-green-500/30 rounded-full flex items-center justify-center mx-auto mb-6">
+        <span class="text-green-400 text-2xl">&#10003;</span>
+      </div>
+
+      <h1 class="text-3xl font-bold tracking-tight mb-4">Thanks for your purchase!</h1>
+
+      <div id="loading" class="text-text-muted">
+        <p>Retrieving your license key...</p>
+      </div>
+
+      <div id="license-info" class="hidden">
+        <p class="text-text-muted mb-6">Your license key is below. Copy it and paste it into the extension to activate your scans.</p>
+
+        <div class="bg-card border border-border rounded-xl p-6 mb-6">
+          <p class="text-sm text-text-muted mb-2">License key</p>
+          <div class="flex items-center gap-3">
+            <code id="license-key" class="text-lg font-mono text-primary-light break-all flex-1"></code>
+            <button id="copy-btn" class="px-3 py-1.5 text-sm bg-surface-raised border border-border rounded-lg hover:border-border-hover transition-colors shrink-0">
+              Copy
+            </button>
+          </div>
+          <p id="credits-info" class="text-sm text-text-muted mt-3"></p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-semibold">Next steps</h2>
+          <ol class="text-sm text-text-muted text-left space-y-2 max-w-sm mx-auto">
+            <li class="flex items-start gap-2">
+              <span class="text-primary-light font-bold">1.</span>
+              <span>Install the Job Red Flag Detector from the Chrome Web Store</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-light font-bold">2.</span>
+              <span>Open the extension and paste your license key</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary-light font-bold">3.</span>
+              <span>Navigate to any job posting and click Scan</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="error-info" class="hidden">
+        <p class="text-text-muted mb-4">We couldn't retrieve your license key right now. Don't worry — your purchase was successful.</p>
+        <p class="text-text-muted">Please check your email for your receipt, or contact <a href="mailto:andreas@zurhaartools.com" class="text-primary-light hover:text-primary transition-colors">andreas@zurhaartools.com</a> for support.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+
+    if (sessionId) {
+      let attempts = 0;
+      const maxAttempts = 10;
+
+      async function fetchLicense() {
+        try {
+          const res = await fetch(`https://zurhaartools-api.andreaszurhaar.workers.dev/api/license?session_id=${encodeURIComponent(sessionId)}`);
+          if (res.ok) {
+            const data = await res.json();
+            document.getElementById('license-key').textContent = data.license_key;
+            document.getElementById('credits-info').textContent = `${data.credits_remaining} scans available`;
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('license-info').classList.remove('hidden');
+          } else if (attempts < maxAttempts) {
+            attempts++;
+            setTimeout(fetchLicense, 2000);
+          } else {
+            showError();
+          }
+        } catch (e) {
+          if (attempts < maxAttempts) {
+            attempts++;
+            setTimeout(fetchLicense, 2000);
+          } else {
+            showError();
+          }
+        }
+      }
+
+      function showError() {
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('error-info').classList.remove('hidden');
+      }
+
+      fetchLicense();
+
+      document.getElementById('copy-btn')?.addEventListener('click', () => {
+        const key = document.getElementById('license-key').textContent;
+        navigator.clipboard.writeText(key);
+        document.getElementById('copy-btn').textContent = 'Copied!';
+        setTimeout(() => document.getElementById('copy-btn').textContent = 'Copy', 2000);
+      });
+    } else {
+      document.getElementById('loading').classList.add('hidden');
+      document.getElementById('error-info').classList.remove('hidden');
+    }
+  </script>
+</Layout>
