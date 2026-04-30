@@ -33,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
             </li>
             <li class="flex items-start gap-3">
               <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
-              <span><strong class="text-text">Page content</strong> — when you click "Scan", the text content of the current page is sent to our servers for analysis. This content is processed in real time and is not stored.</span>
+              <span><strong class="text-text">Page content</strong> — when you click "Scan", the text content of the current page is sent to our backend API where it is processed using automated analysis to identify red flags and green flags. This content is processed in real time, is not stored after analysis, and is not used for any other purpose.</span>
             </li>
           </ul>
         </div>
@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <h2 class="text-xl font-semibold mb-3">Browser extensions</h2>
           <p class="text-text-muted leading-relaxed">
-            Our browser extensions request permissions to access page content on websites you visit. This permission is used solely to extract text for analysis when you explicitly click the "Scan" button. No data is collected, transmitted, or processed without your action.
+            Our browser extensions request permissions to access page content on websites you visit. This permission is used solely to extract text when you explicitly click the "Scan" button. The extracted text is sent to our backend API and processed using AI-based analysis to generate results. No data is collected, transmitted, or processed without your action. The analysed text is not stored on our servers and is not used to train any models.
           </p>
         </div>
 
