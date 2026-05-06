@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div id="license-info" class="hidden">
-        <p class="text-text-muted mb-6">Your license key is below. Copy it and paste it into the extension to activate your scans.</p>
+        <p class="text-text-muted mb-6">Your license key for <strong id="product-name" class="text-text"></strong> is below. Copy it and paste it into the extension to activate your scans.</p>
 
         <div class="bg-card border border-border rounded-xl p-6 mb-6">
           <p class="text-sm text-text-muted mb-2">License key</p>
@@ -34,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
           <ol class="text-sm text-text-muted text-left space-y-2 max-w-sm mx-auto">
             <li class="flex items-start gap-2">
               <span class="text-primary-light font-bold">1.</span>
-              <span>Install the Job Red Flag Detector from the Chrome Web Store</span>
+              <span>Visit <a href="/products" class="text-primary-light hover:text-primary transition-colors">zurhaartools.com/products</a> to get the extension</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-primary-light font-bold">2.</span>
@@ -42,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
             </li>
             <li class="flex items-start gap-2">
               <span class="text-primary-light font-bold">3.</span>
-              <span>Navigate to any job posting and click Scan</span>
+              <span>Start scanning and enjoy your results</span>
             </li>
           </ol>
         </div>
@@ -56,6 +56,11 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <script>
+    const PRODUCT_NAMES = {
+      'job-red-flag-detector': 'Job Red Flag Detector',
+      'tos-scanner': 'ToS Scanner',
+    };
+
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get('session_id');
 
@@ -68,6 +73,8 @@ import Layout from '../layouts/Layout.astro';
           const res = await fetch(`https://zurhaartools-api.andreaszurhaar.workers.dev/api/license?session_id=${encodeURIComponent(sessionId)}`);
           if (res.ok) {
             const data = await res.json();
+            const productName = PRODUCT_NAMES[data.product] || data.product || 'your product';
+            document.getElementById('product-name').textContent = productName;
             document.getElementById('license-key').textContent = data.license_key;
             document.getElementById('credits-info').textContent = `${data.credits_remaining} scans available`;
             document.getElementById('loading').classList.add('hidden');
