@@ -2,136 +2,258 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Pricing — Job Red Flag Detector — Zurhaar Tools" description="Scan job postings for red flags. One-time credit packs starting at €1.99.">
+<Layout title="Pricing — Zurhaar Tools" description="One-time credit packs for all Zurhaar Tools products. No subscriptions.">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-14">
-      <p class="text-sm font-medium text-primary-light mb-3 tracking-wide uppercase">Job Red Flag Detector</p>
-      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Pay per scan. No subscription.</h1>
+    <div class="text-center mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Pricing</h1>
       <p class="text-lg text-text-muted max-w-xl mx-auto">
-        Buy a pack of scans and use them whenever you want. Credits do not expire while the service is operational.
+        Pay per scan. No subscription. Buy credits and use them whenever you want.
       </p>
     </div>
 
-    <!-- Pricing cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16">
-      <!-- 50 scans -->
-      <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
-        <h3 class="text-lg font-semibold mb-1">Starter</h3>
-        <p class="text-sm text-text-muted mb-4">50 scans</p>
-        <div class="mb-6">
-          <span class="text-3xl font-bold">€1.99</span>
-          <span class="text-text-muted text-sm ml-1">one-time</span>
+    <!-- Product tabs -->
+    <div class="flex justify-center gap-2 mb-14">
+      <button
+        data-product="job-red-flag-detector"
+        class="product-tab px-4 py-2 text-sm font-medium rounded-full transition-all cursor-pointer"
+      >
+        Job Red Flag Detector
+      </button>
+      <button
+        data-product="tos-scanner"
+        class="product-tab px-4 py-2 text-sm font-medium rounded-full transition-all cursor-pointer"
+      >
+        ToS Scanner
+      </button>
+    </div>
+
+    <!-- Job Red Flag Detector -->
+    <div data-product-section="job-red-flag-detector">
+      <!-- Pricing cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16">
+        <!-- 50 scans -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-lg font-semibold mb-1">Starter</h3>
+          <p class="text-sm text-text-muted mb-4">50 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€1.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> 50 job posting scans
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Credits don't expire
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> All job sites supported
+            </li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/fZucMY8I8fE0bpP6WU4gg00"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+          >
+            Get Started
+          </a>
         </div>
-        <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> 50 job posting scans
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> Credits don't expire
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> All job sites supported
-          </li>
-        </ul>
-        <a
-          href="https://buy.stripe.com/fZucMY8I8fE0bpP6WU4gg00"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
-        >
-          Get Started
-        </a>
+
+        <!-- 150 scans (popular) -->
+        <div class="bg-card border-2 border-primary/50 rounded-xl p-6 flex flex-col relative hover:border-primary transition-all">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full">Best value</span>
+          <h3 class="text-lg font-semibold mb-1">Standard</h3>
+          <p class="text-sm text-text-muted mb-4">150 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€4.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> 150 job posting scans
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Credits don't expire
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> All job sites supported
+            </li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/7sY7sEcYobnKfG52GE4gg01"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- 500 scans -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-lg font-semibold mb-1">Pro</h3>
+          <p class="text-sm text-text-muted mb-4">500 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€9.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> 500 job posting scans
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Credits don't expire
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> All job sites supported
+            </li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/14A14g5vW1Na0Lb0yw4gg02"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+          >
+            Get Started
+          </a>
+        </div>
       </div>
 
-      <!-- 150 scans (popular) -->
-      <div class="bg-card border-2 border-primary/50 rounded-xl p-6 flex flex-col relative hover:border-primary transition-all">
-        <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full">Best value</span>
-        <h3 class="text-lg font-semibold mb-1">Standard</h3>
-        <p class="text-sm text-text-muted mb-4">150 scans</p>
-        <div class="mb-6">
-          <span class="text-3xl font-bold">€4.99</span>
-          <span class="text-text-muted text-sm ml-1">one-time</span>
+      <!-- How it works (Job Red Flag Detector) -->
+      <div class="max-w-2xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold text-center mb-8">How it works</h2>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">1</div>
+            <div>
+              <h3 class="font-semibold mb-1">Buy a scan pack</h3>
+              <p class="text-sm text-text-muted">Choose a pack above. You'll receive a license key by email instantly.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">2</div>
+            <div>
+              <h3 class="font-semibold mb-1">Install the extension</h3>
+              <p class="text-sm text-text-muted">Get the Job Red Flag Detector from the Chrome Web Store and enter your license key.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">3</div>
+            <div>
+              <h3 class="font-semibold mb-1">Scan any job posting</h3>
+              <p class="text-sm text-text-muted">Open a job listing on any site, click Scan, and get an instant red flag analysis with a score out of 10.</p>
+            </div>
+          </div>
         </div>
-        <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> 150 job posting scans
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> Credits don't expire
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> All job sites supported
-          </li>
-        </ul>
-        <a
-          href="https://buy.stripe.com/7sY7sEcYobnKfG52GE4gg01"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity"
-        >
-          Get Started
-        </a>
-      </div>
-
-      <!-- 500 scans -->
-      <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
-        <h3 class="text-lg font-semibold mb-1">Pro</h3>
-        <p class="text-sm text-text-muted mb-4">500 scans</p>
-        <div class="mb-6">
-          <span class="text-3xl font-bold">€9.99</span>
-          <span class="text-text-muted text-sm ml-1">one-time</span>
-        </div>
-        <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> 500 job posting scans
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> Credits don't expire
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-green-400">&#10003;</span> All job sites supported
-          </li>
-        </ul>
-        <a
-          href="https://buy.stripe.com/14A14g5vW1Na0Lb0yw4gg02"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
-        >
-          Get Started
-        </a>
       </div>
     </div>
 
-    <!-- How it works -->
-    <div class="max-w-2xl mx-auto mb-16">
-      <h2 class="text-2xl font-bold text-center mb-8">How it works</h2>
-      <div class="space-y-6">
-        <div class="flex items-start gap-4">
-          <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">1</div>
-          <div>
-            <h3 class="font-semibold mb-1">Buy a scan pack</h3>
-            <p class="text-sm text-text-muted">Choose a pack above. You'll receive a license key by email instantly.</p>
+    <!-- ToS Scanner (Coming Soon) -->
+    <div data-product-section="tos-scanner" class="hidden">
+      <!-- Coming Soon pricing cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16">
+        <!-- Starter -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col opacity-60">
+          <h3 class="text-lg font-semibold mb-1">Starter</h3>
+          <p class="text-sm text-text-muted mb-4">50 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-text-muted">--</span>
           </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> 50 ToS/privacy scans
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Credits don't expire
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Plain-language summaries
+            </li>
+          </ul>
+          <span class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg">
+            Coming Soon
+          </span>
         </div>
-        <div class="flex items-start gap-4">
-          <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">2</div>
-          <div>
-            <h3 class="font-semibold mb-1">Install the extension</h3>
-            <p class="text-sm text-text-muted">Get the Job Red Flag Detector from the Chrome Web Store and enter your license key.</p>
+
+        <!-- Standard -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col relative opacity-60">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-medium bg-surface-raised border border-border text-text-muted rounded-full">Coming soon</span>
+          <h3 class="text-lg font-semibold mb-1">Standard</h3>
+          <p class="text-sm text-text-muted mb-4">150 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-text-muted">--</span>
           </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> 150 ToS/privacy scans
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Credits don't expire
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Plain-language summaries
+            </li>
+          </ul>
+          <span class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg">
+            Coming Soon
+          </span>
         </div>
-        <div class="flex items-start gap-4">
-          <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">3</div>
-          <div>
-            <h3 class="font-semibold mb-1">Scan any job posting</h3>
-            <p class="text-sm text-text-muted">Open a job listing on any site, click Scan, and get an instant red flag analysis with a score out of 10.</p>
+
+        <!-- Pro -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col opacity-60">
+          <h3 class="text-lg font-semibold mb-1">Pro</h3>
+          <p class="text-sm text-text-muted mb-4">500 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-text-muted">--</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> 500 ToS/privacy scans
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Credits don't expire
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-green-400">&#10003;</span> Plain-language summaries
+            </li>
+          </ul>
+          <span class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg">
+            Coming Soon
+          </span>
+        </div>
+      </div>
+
+      <!-- How it works (ToS Scanner) -->
+      <div class="max-w-2xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold text-center mb-8">How it works</h2>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">1</div>
+            <div>
+              <h3 class="font-semibold mb-1">Buy a scan pack</h3>
+              <p class="text-sm text-text-muted">Choose a pack above. You'll receive a license key by email instantly.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">2</div>
+            <div>
+              <h3 class="font-semibold mb-1">Install the extension</h3>
+              <p class="text-sm text-text-muted">Get the ToS Scanner from the Chrome Web Store and enter your license key.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">3</div>
+            <div>
+              <h3 class="font-semibold mb-1">Scan any Terms of Service</h3>
+              <p class="text-sm text-text-muted">Open a Terms of Service or Privacy Policy page, click Scan, and get a plain-language summary highlighting dangers.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- FAQ -->
+    <!-- FAQ (shared across all products) -->
     <div class="max-w-2xl mx-auto">
       <h2 class="text-2xl font-bold text-center mb-8">Questions</h2>
       <div class="space-y-6">
@@ -144,14 +266,49 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-sm text-text-muted">Yes. Additional purchases are added to your existing balance automatically.</p>
         </div>
         <div>
-          <h3 class="font-semibold mb-2">Which job sites are supported?</h3>
-          <p class="text-sm text-text-muted">LinkedIn, Indeed, Glassdoor, StepStone, Monster, Reed, SEEK, Nationale Vacaturebank, and most other job sites.</p>
+          <h3 class="font-semibold mb-2">Can I use one license key across products?</h3>
+          <p class="text-sm text-text-muted">Each product has its own license key and credit balance. Buy scan packs for each product separately.</p>
         </div>
         <div>
           <h3 class="font-semibold mb-2">What does a scan include?</h3>
-          <p class="text-sm text-text-muted">Each scan gives you a score out of 10, a list of red flags (vague salary, unrealistic requirements, toxic culture signals), and green flags — with explanations for each.</p>
+          <p class="text-sm text-text-muted">Each scan analyses the page content and gives you a clear, structured breakdown with scores and explanations.</p>
         </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  function activateProduct(productId) {
+    document.querySelectorAll('[data-product-section]').forEach(section => {
+      section.classList.toggle('hidden', section.dataset.productSection !== productId);
+    });
+    document.querySelectorAll('.product-tab').forEach(tab => {
+      const isActive = tab.dataset.product === productId;
+      if (isActive) {
+        tab.className = 'product-tab px-4 py-2 text-sm font-medium rounded-full transition-all cursor-pointer bg-gradient-to-r from-primary to-accent text-white';
+      } else {
+        tab.className = 'product-tab px-4 py-2 text-sm font-medium rounded-full transition-all cursor-pointer text-text-muted bg-surface-raised border border-border hover:border-border-hover';
+      }
+    });
+  }
+
+  document.querySelectorAll('.product-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const productId = tab.dataset.product;
+      history.replaceState(null, '', '#' + productId);
+      activateProduct(productId);
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.slice(1);
+    if (hash && document.querySelector(`[data-product-section="${hash}"]`)) {
+      activateProduct(hash);
+    }
+  });
+
+  const initialHash = window.location.hash.slice(1);
+  const validProduct = initialHash && document.querySelector(`[data-product-section="${initialHash}"]`);
+  activateProduct(validProduct ? initialHash : 'job-red-flag-detector');
+</script>
