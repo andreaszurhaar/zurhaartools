@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="max-w-2xl">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Privacy Policy</h1>
-      <p class="text-text-muted mb-10">Last updated: April 25, 2026</p>
+      <p class="text-text-muted mb-10">Last updated: May 18, 2026</p>
 
       <div class="space-y-8">
         <div>
@@ -18,6 +18,23 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div>
+          <h2 class="text-xl font-semibold mb-3">Our products</h2>
+          <p class="text-text-muted leading-relaxed">
+            This policy applies to our browser extensions and the supporting backend at <code class="text-text">zurhaartools-api.andreaszurhaar.workers.dev</code>:
+          </p>
+          <ul class="space-y-3 text-text-muted mt-3">
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
+              <span><strong class="text-text">Job Red Flag Detector</strong> — analyses the text of a job posting you open and flags concerning patterns.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
+              <span><strong class="text-text">ToS Scanner</strong> — analyses the text of a Terms of Service or Privacy Policy page you open and produces a plain-language summary of risks.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
           <h2 class="text-xl font-semibold mb-3">What data we collect</h2>
           <p class="text-text-muted leading-relaxed mb-3">
             Our products collect only the minimum data necessary to function:
@@ -25,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="space-y-3 text-text-muted">
             <li class="flex items-start gap-3">
               <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
-              <span><strong class="text-text">License key</strong> — stored locally in your browser to authenticate your purchase. Not shared with third parties.</span>
+              <span><strong class="text-text">License key</strong> — stored locally in your browser to authenticate your purchase. Sent to our backend with each scan to verify your remaining credit balance. Not shared with third parties beyond what is described below.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
@@ -33,7 +50,11 @@ import Layout from '../layouts/Layout.astro';
             </li>
             <li class="flex items-start gap-3">
               <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
-              <span><strong class="text-text">Page content</strong> — when you click "Scan", the text content of the current page is sent to our backend API where it is processed using automated analysis to identify red flags and green flags. This content is processed in real time, is not stored after analysis, and is not used for any other purpose.</span>
+              <span><strong class="text-text">Page content you choose to scan</strong> — when you click "Scan", the visible text of the current page (for ToS Scanner: the Terms of Service or Privacy Policy you are viewing; for Job Red Flag Detector: the job posting you are viewing) is sent to our backend API, which forwards it to a third-party analysis provider (see "Third-party processing" below). The submitted text typically contains no personal data, but if you choose to scan a page that contains your own personal information, that text will be transmitted as described. This content is processed in real time and is not retained by our backend after the response is returned.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
+              <span><strong class="text-text">Scan transactions</strong> — we record that a scan of a given type occurred against your license key (for credit accounting), but we do not store the page text, the URL, or the analysis result.</span>
             </li>
           </ul>
         </div>
@@ -63,14 +84,20 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <h2 class="text-xl font-semibold mb-3">Browser extensions</h2>
           <p class="text-text-muted leading-relaxed">
-            Our browser extensions request permissions to access page content on websites you visit. This permission is used solely to extract text when you explicitly click the "Scan" button. The extracted text is sent to our backend API and processed using AI-based analysis to generate results. No data is collected, transmitted, or processed without your action. The analysed text is not stored on our servers and is not used to train any models.
+            Our browser extensions request permissions to access page content on websites you visit. This permission is used solely to extract text when you explicitly click the "Scan" button. The extracted text is sent to our backend API and forwarded to a third-party analysis service to generate results (see "Third-party processing" below). No data is collected, transmitted, or processed without your action. The submitted text is not stored on our servers and is not used to train any models.
           </p>
         </div>
 
         <div>
           <h2 class="text-xl font-semibold mb-3">Third-party processing</h2>
+          <p class="text-text-muted leading-relaxed mb-3">
+            To produce the analysis displayed by our extensions, we forward the submitted page text to <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Anthropic, PBC</a>, a sub-processor based in the United States. The text is sent to Anthropic's API (model: Claude Haiku) over an encrypted connection, analysed in real time, and the result is returned to you.
+          </p>
+          <p class="text-text-muted leading-relaxed mb-3">
+            Anthropic processes this data on our behalf under its <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">commercial terms</a> and <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">privacy policy</a>. Inputs and outputs are not used to train Anthropic's models. Because Anthropic is located in the United States, this constitutes a transfer of data outside the European Economic Area; the transfer is covered by Anthropic's contractual safeguards.
+          </p>
           <p class="text-text-muted leading-relaxed">
-            When you use the scan feature, extracted text is sent to our servers and processed using a third-party analysis service based in the United States. This data is processed in accordance with appropriate safeguards and is not stored after analysis is complete.
+            We do not send your license key, email address, or any account identifier to Anthropic — only the page text you submit for analysis.
           </p>
         </div>
 
@@ -82,17 +109,20 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div>
-          <h2 class="text-xl font-semibold mb-3">Data storage and security</h2>
+          <h2 class="text-xl font-semibold mb-3">Data storage and retention</h2>
+          <p class="text-text-muted leading-relaxed mb-3">
+            License keys, credit balances, and the email address associated with a purchase are stored on Cloudflare's infrastructure. Data is transmitted over HTTPS and access is restricted to authenticated requests only.
+          </p>
           <p class="text-text-muted leading-relaxed">
-            License keys and credit balances are stored on Cloudflare's infrastructure within the European Union. Data is transmitted over HTTPS and access is restricted to authenticated requests only.
+            Submitted page text is held only in memory for the duration of the scan request and is discarded once the response is returned. We retain a per-scan transaction record (license key, scan type, timestamp) for credit accounting and fraud prevention, but this record does not include the page content, the URL, or the analysis result. Purchase records are retained for the period required by Dutch tax law (seven years).
           </p>
         </div>
 
         <div>
           <h2 class="text-xl font-semibold mb-3">Your rights</h2>
           <p class="text-text-muted leading-relaxed">
-            Under the GDPR, you have the right to access, correct, or delete your personal data. To exercise these rights, contact us at
-            <a href="mailto:andreas@zurhaartools.com" class="text-primary-light hover:text-primary transition-colors">andreas@zurhaartools.com</a>.
+            Under the GDPR, you have the right to access, correct, or delete your personal data, and to receive a copy of it. To exercise these rights, email
+            <a href="mailto:andreas@zurhaartools.com" class="text-primary-light hover:text-primary transition-colors">andreas@zurhaartools.com</a> from the address used at purchase. On a deletion request, the email address and license keys associated with your account are anonymised; underlying purchase records required by tax law are retained but no longer linked to your identity. We respond within 30 days.
           </p>
         </div>
 
