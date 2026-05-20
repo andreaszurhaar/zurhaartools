@@ -1,0 +1,359 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const title = 'Chrome Extension Kit — Zurhaar Tools';
+const description = 'Ship a paid Chrome extension this month — the exact stack behind two live Zurhaar Tools products. Template repo, working backend, lifetime GitHub access.';
+const canonical = 'https://zurhaartools.com/chrome-extension-kit';
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+    <div class="max-w-3xl">
+      <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/20 mb-5">
+        Kit
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+        Ship a paid Chrome extension
+        <span class="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">this month.</span>
+      </h1>
+      <p class="text-lg text-text-muted mb-10 max-w-2xl leading-relaxed">
+        The exact stack behind Job Red Flag Detector and ToS Scanner — template repo, working backend, written-down lessons. Lifetime access to the GitHub repo.
+      </p>
+
+      <div class="max-w-lg">
+        <WaitlistForm id="hero-waitlist" source="chrome-extension-kit-landing" />
+      </div>
+
+      <p class="text-sm text-text-muted mt-6">
+        Built on Cloudflare Workers + Stripe + Anthropic API. MV3.
+      </p>
+    </div>
+  </section>
+
+  <!-- Social proof bar -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <p class="text-sm text-text-muted text-center mb-6">
+        Built from the same code that runs two live Zurhaar Tools products.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <div class="bg-card border border-border rounded-lg p-5">
+          <h3 class="font-semibold mb-2">Job Red Flag Detector</h3>
+          <p class="text-sm text-text-muted">Live on Chrome + Edge</p>
+          <p class="text-sm text-text-muted">Approved May 11</p>
+        </div>
+        <div class="bg-card border border-border rounded-lg p-5">
+          <h3 class="font-semibold mb-2">ToS Scanner</h3>
+          <p class="text-sm text-text-muted">In Chrome + Edge review</p>
+          <p class="text-sm text-text-muted">Submitted May 18</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's inside -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">What's inside</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div>
+          <h3 class="text-lg font-semibold mb-5 text-purple-400">Code that ships to production</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">Working sample Chrome extension</strong> (MV3 manifest with side panel + popup + content scripts wired up)</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">Cloudflare Worker backend</strong> — Stripe webhooks, license keys, credit metering, refund + chargeback handlers</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">Astro storefront</strong> — pricing page with tabs, success page that fetches the license key, recover flow</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">D1 schema + migrations</strong> — licenses, credit transactions, status state machine (active / suspended / revoked / deleted)</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">Resend email templates</strong> — purchase confirmation + license recovery</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">Playwright tests in 3 layers</strong> — shared state machine, content extraction with fixtures, real-API smoke</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-5 text-purple-400">Lessons from shipping two real extensions</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">EU-compliant privacy + terms templates</strong> (most kits skip this — get rejected from Chrome Web Store for it)</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">The Promise.race gotcha</strong> — chrome.scripting.executeScript hangs forever when permissions are revoked</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">The activeTab-vs-host-permissions matrix</strong> — the #1 reason extensions get rejected</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">The 7-state side panel pattern</strong> — welcome, initial, loading, results, no-credits, error, no-content</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">The 4-strategy content extractor</strong> that works on any site (selectors → markers → keyword scoring → fallback)</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+              <span class="text-purple-400 shrink-0 mt-0.5">&#10003;</span>
+              <span><strong class="text-text">Shadow-DOM extraction</strong> (for LinkedIn-style sites) and MutationObserver for SPAs</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-14 bg-surface-raised border border-border rounded-xl p-6">
+        <h3 class="text-lg font-semibold mb-4">What it doesn't include</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+            <span class="text-text-muted shrink-0 mt-0.5">&#10005;</span>
+            <span>The actual prompts behind Job Red Flag Detector and ToS Scanner (those are the products — kit ships a neutral example prompt that demonstrates the same JSON-output convention)</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+            <span class="text-text-muted shrink-0 mt-0.5">&#10005;</span>
+            <span>A hosted Worker — you run your own Cloudflare account, that's the point</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+            <span class="text-text-muted shrink-0 mt-0.5">&#10005;</span>
+            <span>Auto-deploying CI/CD (optional chapter in the docs — left out so the kit works without it)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Tier comparison -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Pricing</h2>
+        <p class="text-text-muted">One-time payment. Lifetime access to the repo and every update.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- Starter -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-xl font-semibold mb-1">Starter</h3>
+          <p class="text-sm text-text-muted mb-4">For solo developers building their first extension</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Full code (extension, backend, website)</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> EU-compliant privacy + terms templates</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Sample extension + second-extension scaffold</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Playwright tests (3 layers)</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> All technical docs</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Lifetime access to the repo</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Lifetime updates</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> License: 1 developer</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> 30 days email support</li>
+          </ul>
+          <button
+            type="button"
+            disabled
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg cursor-not-allowed"
+          >
+            Join the waitlist below
+          </button>
+        </div>
+
+        <!-- Pro (best value) -->
+        <div class="bg-card border-2 border-purple-500/60 rounded-xl p-6 flex flex-col relative hover:border-purple-500 transition-all">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-medium bg-purple-600 text-white rounded-full">Best value</span>
+          <h3 class="text-xl font-semibold mb-1">Pro</h3>
+          <p class="text-sm text-text-muted mb-4">For shipping a real product to market</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€199</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Everything in Starter</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> License: up to 5 developers</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> 6 months email support</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> First-paying-customer playbook</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Featured Build slot on the developers page (if you opt in)</li>
+          </ul>
+          <button
+            type="button"
+            disabled
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-purple-600/60 rounded-lg cursor-not-allowed"
+          >
+            Join the waitlist below
+          </button>
+        </div>
+
+        <!-- Studio -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-xl font-semibold mb-1">Studio</h3>
+          <p class="text-sm text-text-muted mb-4">For agencies and studios building multiple extensions</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€299</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Everything in Pro</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> License: unlimited developers</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Lifetime email support</li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> 1 hour async code review within 30 days of purchase</li>
+          </ul>
+          <button
+            type="button"
+            disabled
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg cursor-not-allowed"
+          >
+            Join the waitlist below
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">How it works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div>
+          <div class="w-12 h-12 bg-purple-500/15 border border-purple-500/30 text-purple-400 rounded-xl flex items-center justify-center mb-4 text-lg font-bold">1</div>
+          <h3 class="font-semibold mb-2">Buy on Gumroad</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Choose a tier and pay once. Gumroad handles checkout, EU VAT, the lot.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-purple-500/15 border border-purple-500/30 text-purple-400 rounded-xl flex items-center justify-center mb-4 text-lg font-bold">2</div>
+          <h3 class="font-semibold mb-2">Enter your GitHub username at checkout</h3>
+          <p class="text-sm text-text-muted leading-relaxed">One required custom field — your GitHub handle, that's it.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-purple-500/15 border border-purple-500/30 text-purple-400 rounded-xl flex items-center justify-center mb-4 text-lg font-bold">3</div>
+          <h3 class="font-semibold mb-2">Get a repo invite in your email</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Within seconds. Pull access, lifetime.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-purple-500/15 border border-purple-500/30 text-purple-400 rounded-xl flex items-center justify-center mb-4 text-lg font-bold">4</div>
+          <h3 class="font-semibold mb-2">Ship your extension</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Read the quickstart, deploy the worker, build your first extension.</p>
+        </div>
+      </div>
+      <p class="text-sm text-text-muted italic max-w-2xl mx-auto text-center mt-10 leading-relaxed">
+        The full mechanics: Gumroad sends a webhook to our backend → backend invites your GitHub user as a collaborator → you accept the invite and clone. If you typo your username, you can fix it from a self-service redemption page.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="border-t border-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">Questions</h2>
+      <div class="space-y-7">
+        <div>
+          <h3 class="font-semibold mb-2">How long does it take to ship a real extension with this?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">If you've never built a Chrome extension before, expect a weekend to get the sample running on your own Cloudflare account, then 2–4 weeks to design, build, test, and submit your own extension. The kit removes the "what do I even need to set up" question — you're left with just the extension-specific work.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Do I keep updates after I buy?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Yes. Lifetime access to the repo means you can pull every kit update Andreas ships, forever. No subscription, no renewal.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What if I don't have a GitHub account?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">You'll need one — it's free. The kit lives in a private GitHub repo, and you get access by being invited as a collaborator. If you enter the wrong username at checkout, there's a recovery page that lets you fix it.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What's the refund policy?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">14 days, no questions asked. After that, it's non-refundable — same as buying a book. If you refund, you're removed from the repo automatically.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What tech do I need to know?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">JavaScript (you'll be writing some). Familiarity with HTML/CSS for the side panel and the website. The setup docs assume you can use a terminal, a text editor, and follow a step-by-step guide. You do not need to know Cloudflare, Stripe, or Manifest V3 in advance — the docs cover all three from scratch.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Does the kit include hosting costs?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No, but they're effectively zero for a starting business. Cloudflare Workers and D1 are free up to 100k requests / 5M reads a day. Resend is free for the first 100 emails a day. Stripe charges per transaction (1.5% + €0.25 in the EU), not monthly. The only fixed cost is your domain (~€10/year).</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Can I sell the extensions I build with this?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Yes. The kit license allows commercial use on every tier — what you build with the kit is yours to sell. The only thing the license forbids is redistributing the kit code itself.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Is the kit a subscription?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No. One-time payment, lifetime repo access, lifetime updates. If you pay for something, you have it forever.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What's in the Studio tier's code review?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">A 1-hour async code review within 30 days of purchase. Send Andreas your repo, get back written feedback on architecture, gotchas you've hit, and what to clean up before you submit to the Chrome Web Store.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What's the sample extension that comes with the kit?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">It's called Pageword Counter Pro — a purpose-built teaching example that counts words on a page and shows reading time. It uses the same content extractor, same backend, same state machine, same tests as Job Red Flag Detector and ToS Scanner. It's a working extension you can actually load into Chrome and run, not a stub.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Are the prompts from Job Red Flag Detector and ToS Scanner included?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No — those are the products. The kit ships a neutral example prompt that demonstrates the same JSON-output convention without copying the competitive vocab. You write your own prompts for your own products.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Where does checkout happen?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">On Gumroad. After purchase, you'll get a confirmation email from Gumroad and a separate email from us with the GitHub invite link.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">When can I buy?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Joining the waitlist is the only way to know. We'll email you the day it opens. No spam, no marketing list — one email per launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA + waitlist -->
+  <section class="border-t border-border">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <h2 class="text-3xl font-bold mb-4">Be first when it launches</h2>
+      <p class="text-text-muted mb-8 leading-relaxed">
+        Drop your email below. We'll send one message the day the kit goes live. That's the whole list.
+      </p>
+      <WaitlistForm id="footer-waitlist" source="chrome-extension-kit-landing" />
+    </div>
+  </section>
+
+  <!-- Cross-sell footer -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-2xl font-bold mb-2">Other Zurhaar Tools</h2>
+      <p class="text-sm text-text-muted mb-8">Built by the same person. One support email, one quality bar.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+        <ProductCard
+          title="Job Red Flag Detector"
+          description="Spots warning signs in job postings — vague salary, toxic culture signals, unrealistic requirements."
+          category="extension"
+          price="From €1.99"
+          href="/pricing#job-red-flag-detector"
+        />
+        <ProductCard
+          title="ToS Scanner"
+          description="Scans Terms of Service and Privacy Policies, highlights dangers in plain language."
+          category="extension"
+          price="From €1.99"
+          href="/pricing#tos-scanner"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

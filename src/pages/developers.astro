@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Developers — Zurhaar Tools';
+const description = 'Tools to build and ship your own Chrome extensions. The exact stack behind Job Red Flag Detector and ToS Scanner.';
+const canonical = 'https://zurhaartools.com/developers';
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-12">
+      <p class="text-sm font-medium text-purple-400 mb-3 tracking-wide uppercase">For Developers</p>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Tools to build your own</h1>
+      <p class="text-lg text-text-muted max-w-2xl">
+        Stacks, templates, and lessons from shipping real Chrome extensions to the Chrome Web Store and Edge Add-ons store.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group bg-card border border-border rounded-xl p-6 flex flex-col hover:border-purple-500/40 hover:bg-card-hover transition-all duration-300">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/20">
+            Kit
+          </span>
+          <span class="text-sm font-semibold text-text">From €99</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 group-hover:text-purple-400 transition-colors">Chrome Extension Kit</h3>
+        <p class="text-sm text-text-muted flex-1 mb-4 leading-relaxed">
+          The exact stack behind Job Red Flag Detector and ToS Scanner. Template repo, working backend, lifetime GitHub access.
+        </p>
+        <a
+          href="/chrome-extension-kit"
+          class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors"
+        >
+          Learn more &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center">
+      <p class="text-text-muted">More developer tools coming. Follow along on <a href="https://github.com/andreaszurhaar" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 transition-colors">GitHub</a>.</p>
+    </div>
+  </section>
+</Layout>

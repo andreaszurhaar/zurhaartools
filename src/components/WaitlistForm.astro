@@ -1,0 +1,104 @@
+---
+interface Props {
+  id: string;
+  source: string;
+  buttonText?: string;
+  placeholder?: string;
+}
+
+const {
+  id,
+  source,
+  buttonText = 'Notify me when it launches',
+  placeholder = 'your@email.com'
+} = Astro.props;
+---
+
+<div class="waitlist-form" data-source={source}>
+  <div id={`${id}-form-state`}>
+    <form id={`${id}-form`} class="flex flex-col sm:flex-row gap-3" novalidate>
+      <input
+        type="email"
+        id={`${id}-email`}
+        required
+        placeholder={placeholder}
+        autocomplete="email"
+        class="flex-1 px-4 py-3 bg-card border border-border rounded-lg text-text placeholder:text-text-muted focus:outline-none focus:border-purple-500 transition-colors"
+      />
+      <button
+        type="submit"
+        id={`${id}-submit`}
+        class="inline-flex items-center justify-center px-5 py-3 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {buttonText}
+      </button>
+    </form>
+    <p id={`${id}-error`} class="hidden text-sm text-red-400 mt-2"></p>
+  </div>
+
+  <div id={`${id}-success`} class="hidden flex items-center gap-3 px-4 py-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+    <span class="text-purple-400 text-xl shrink-0">&#10003;</span>
+    <p class="text-text">You're in. Watch your inbox.</p>
+  </div>
+</div>
+
+<script define:vars={{ id, source }}>
+  (function () {
+    const form = document.getElementById(`${id}-form`);
+    const emailInput = document.getElementById(`${id}-email`);
+    const submitBtn = document.getElementById(`${id}-submit`);
+    const formState = document.getElementById(`${id}-form-state`);
+    const successState = document.getElementById(`${id}-success`);
+    const errorEl = document.getElementById(`${id}-error`);
+
+    if (!form) return;
+
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const ENDPOINT = 'https://zurhaartools-api.andreaszurhaar.workers.dev/api/kit/waitlist';
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.remove('hidden');
+    }
+
+    function clearError() {
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearError();
+
+      const email = emailInput.value.trim();
+      if (!EMAIL_RE.test(email)) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving...';
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source }),
+        });
+
+        if (res.ok) {
+          formState.classList.add('hidden');
+          successState.classList.remove('hidden');
+        } else {
+          showError("Hmm, that didn't work — try again?");
+        }
+      } catch {
+        showError("Hmm, that didn't work — try again?");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  })();
+</script>
