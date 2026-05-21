@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import WaitlistForm from '../components/WaitlistForm.astro';
-import ProductCard from '../components/ProductCard.astro';
+import CrossSell from '../components/CrossSell.astro';
 
 const title = 'Chrome Extension Kit — Zurhaar Tools';
 const description = 'Ship a paid Chrome extension this month — the exact stack behind two live Zurhaar Tools products. Template repo, working backend, lifetime GitHub access.';
@@ -333,27 +333,5 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
     </div>
   </section>
 
-  <!-- Cross-sell footer -->
-  <section class="border-t border-border">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <h2 class="text-2xl font-bold mb-2">Other Zurhaar Tools</h2>
-      <p class="text-sm text-text-muted mb-8">Built by the same person. One support email, one quality bar.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
-        <ProductCard
-          title="Job Red Flag Detector"
-          description="Spots warning signs in job postings — vague salary, toxic culture signals, unrealistic requirements."
-          category="extension"
-          price="From €1.99"
-          href="/pricing#job-red-flag-detector"
-        />
-        <ProductCard
-          title="ToS Scanner"
-          description="Scans Terms of Service and Privacy Policies, highlights dangers in plain language."
-          category="extension"
-          price="From €1.99"
-          href="/pricing#tos-scanner"
-        />
-      </div>
-    </div>
-  </section>
+  <CrossSell currentProduct="kit" />
 </Layout>

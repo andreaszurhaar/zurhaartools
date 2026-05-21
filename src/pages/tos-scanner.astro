@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CrossSell from '../components/CrossSell.astro';
+
+const title = 'ToS Scanner — Zurhaar Tools';
+const description = 'Instantly understand any Terms of Service or Privacy Policy. Spot hidden clauses, data sharing, and unfair terms in plain language. Browser extension, pay per scan, credits never expire.';
+const canonical = 'https://zurhaartools.com/tos-scanner';
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+    <div class="max-w-3xl">
+      <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/20 mb-5">
+        Extension
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+        Know what you're
+        <span class="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">agreeing to</span>
+      </h1>
+      <p class="text-lg text-text-muted mb-10 max-w-2xl leading-relaxed">
+        A browser extension that reads dense Terms of Service and Privacy Policy pages and gives you a plain-language breakdown — fairness score, summary, red flags with quoted evidence, and green flags worth noting.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="#pricing"
+          class="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity"
+        >
+          See pricing
+        </a>
+        {/* TODO(andreas): Replace with the live ToS Scanner Chrome Web Store URL once approved (submitted May 18). Same shape as the JRF entry on the success page. */}
+        <a
+          href="https://chromewebstore.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-6 py-3 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+        >
+          Get it on Chrome &rarr;
+        </a>
+      </div>
+      <p class="text-sm text-text-muted mt-6">
+        Chrome Web Store listing pending review. Edge Add-ons coming soon. Credits never expire.
+      </p>
+    </div>
+  </section>
+
+  <!-- What it does -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">What it does</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Fairness score</h3>
+          <p class="text-sm text-text-muted leading-relaxed">A 1-to-10 rating, color-coded, so you know at a glance whether to keep reading or close the tab and move on.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Plain-language summary</h3>
+          <p class="text-sm text-text-muted leading-relaxed">One paragraph that explains what the document actually means for you as a user — no legalese, no fluff.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Red flags with evidence</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Data sharing, arbitration, auto-renewal, broad IP grants, jurisdiction tricks — each one with the exact quoted clause and what it means.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Green flags too</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Easy deletion, GDPR compliance, no-sale promises, clear refund policies — the things a service does right are worth knowing too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">How it works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div>
+          <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 text-primary-light rounded-xl flex items-center justify-center mb-4 text-lg font-bold">1</div>
+          <h3 class="font-semibold mb-2">Install &amp; activate</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Add the extension from the Chrome Web Store. Buy a scan pack, paste your license key into the side panel.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 text-primary-light rounded-xl flex items-center justify-center mb-4 text-lg font-bold">2</div>
+          <h3 class="font-semibold mb-2">Open any Terms or Privacy page</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Any service, any site. Click the toolbar icon to open the side panel alongside the legal text.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 text-primary-light rounded-xl flex items-center justify-center mb-4 text-lg font-bold">3</div>
+          <h3 class="font-semibold mb-2">Click Scan, read the report</h3>
+          <p class="text-sm text-text-muted leading-relaxed">One credit per scan. Score, summary, red flags, green flags appear in seconds — quoted from the actual document.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="border-t border-border scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Pricing</h2>
+        <p class="text-text-muted">Pay per scan. No subscription. Credits never expire.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <!-- 50 scans -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-lg font-semibold mb-1">Starter</h3>
+          <p class="text-sm text-text-muted mb-4">50 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€1.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 50 ToS/privacy scans</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Credits don't expire</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Plain-language summaries</li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/eVqeV68I8crO0Lbdli4gg03"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- 150 scans (popular) -->
+        <div class="bg-card border-2 border-primary/50 rounded-xl p-6 flex flex-col relative hover:border-primary transition-all">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full">Best value</span>
+          <h3 class="text-lg font-semibold mb-1">Standard</h3>
+          <p class="text-sm text-text-muted mb-4">150 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€4.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 150 ToS/privacy scans</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Credits don't expire</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Plain-language summaries</li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/6oU6oAgaAfE01Pf1CA4gg04"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- 500 scans -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-lg font-semibold mb-1">Pro</h3>
+          <p class="text-sm text-text-muted mb-4">500 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€9.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 500 ToS/privacy scans</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Credits don't expire</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Plain-language summaries</li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/6oUfZabUkbnK1Pf4OM4gg05"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="border-t border-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">Questions</h2>
+      <div class="space-y-7">
+        <div>
+          <h3 class="font-semibold mb-2">Why pay per scan instead of a subscription?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Because you only need to check terms when you're signing up for something new. Credits sit on your license key until you use them — no auto-renewal, no recurring charges.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Do credits expire?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No. If you pay for something, you have it forever — that's the rule. Your credits stay on your account until you use them.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Which sites does it work on?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Any site with a Terms of Service or Privacy Policy page. The extension finds the legal text on the page you're viewing — no per-site configuration, no allowlist.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What does the analysis cover?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Data sharing, broad license grants on your content, liability waivers, unilateral changes to terms, auto-renewal, binding arbitration, jurisdiction clauses, retention policies — plus the user-friendly clauses that deserve credit.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">How accurate is it?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Every flag includes the quoted clause it's based on, so you can verify the reasoning yourself. Treat the score as a guide for where to read more carefully — not as legal advice.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What data do you collect?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Only the legal text you actively choose to scan, plus your license key. Nothing is stored after the scan completes. The text is sent to Claude (Anthropic) for analysis under their API terms — see the <a href="/privacy" class="text-primary-light hover:text-primary transition-colors">privacy policy</a> for the full picture.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Does it replace reading the terms?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No. It tells you where to look. For anything legally binding you actually care about, read the original — the scan points you at the parts that matter.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Can I buy more credits later?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Yes. Any additional purchase with the same email tops up your existing license key automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CrossSell currentProduct="tos-scanner" />
+</Layout>

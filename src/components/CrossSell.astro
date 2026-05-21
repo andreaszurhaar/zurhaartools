@@ -1,0 +1,96 @@
+---
+interface Props {
+  currentProduct: 'jrf' | 'tos-scanner' | 'kit';
+}
+
+const { currentProduct } = Astro.props;
+
+type ProductKey = 'jrf' | 'tos-scanner' | 'kit';
+
+interface ProductMeta {
+  key: ProductKey;
+  category: 'extension' | 'kit';
+  title: string;
+  description: string;
+  price: string;
+  href: string;
+  cta: string;
+}
+
+const PRODUCTS: Record<ProductKey, ProductMeta> = {
+  jrf: {
+    key: 'jrf',
+    category: 'extension',
+    title: 'Job Red Flag Detector',
+    description: 'Spots warning signs in job postings — vague salary, unrealistic requirements, toxic culture signals.',
+    price: 'From €1.99',
+    href: '/job-red-flag-detector',
+    cta: 'Learn more',
+  },
+  'tos-scanner': {
+    key: 'tos-scanner',
+    category: 'extension',
+    title: 'ToS Scanner',
+    description: 'Scans Terms of Service and Privacy Policies, highlights dangers in plain language.',
+    price: 'From €1.99',
+    href: '/tos-scanner',
+    cta: 'Learn more',
+  },
+  kit: {
+    key: 'kit',
+    category: 'kit',
+    title: 'Chrome Extension Kit',
+    description: 'Ship your own paid Chrome extension this month — template repo, working backend, lifetime GitHub access.',
+    price: 'From €99',
+    href: '/chrome-extension-kit',
+    cta: 'Join the waitlist',
+  },
+};
+
+const ORDER: ProductKey[] = ['jrf', 'tos-scanner', 'kit'];
+const others = ORDER.filter((k) => k !== currentProduct).map((k) => PRODUCTS[k]);
+
+const CATEGORY_STYLES = {
+  extension: {
+    badge: 'bg-orange-500/15 text-orange-400 border border-orange-500/20',
+    label: 'Extension',
+    hoverBorder: 'hover:border-orange-500/40',
+    hoverTitle: 'group-hover:text-primary-light',
+    cta: 'inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity',
+  },
+  kit: {
+    badge: 'bg-purple-500/15 text-purple-400 border border-purple-500/20',
+    label: 'Kit',
+    hoverBorder: 'hover:border-purple-500/40',
+    hoverTitle: 'group-hover:text-purple-400',
+    cta: 'inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors',
+  },
+} as const;
+---
+
+<section class="border-t border-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h2 class="text-2xl font-bold mb-2">Other Zurhaar Tools</h2>
+    <p class="text-sm text-text-muted mb-8">Built by the same person. One support email, one quality bar.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+      {others.map((p) => {
+        const style = CATEGORY_STYLES[p.category];
+        return (
+          <div class={`group bg-card border border-border rounded-xl p-6 flex flex-col ${style.hoverBorder} hover:bg-card-hover transition-all duration-300`}>
+            <div class="flex items-center justify-between mb-3">
+              <span class={`text-xs font-medium px-2.5 py-1 rounded-full ${style.badge}`}>
+                {style.label}
+              </span>
+              <span class="text-sm font-semibold text-text">{p.price}</span>
+            </div>
+            <h3 class={`text-lg font-semibold mb-2 transition-colors ${style.hoverTitle}`}>{p.title}</h3>
+            <p class="text-sm text-text-muted flex-1 mb-4 leading-relaxed">{p.description}</p>
+            <a href={p.href} class={style.cta}>
+              {p.cta} &rarr;
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

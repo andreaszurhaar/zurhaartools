@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CrossSell from '../components/CrossSell.astro';
+
+const title = 'Job Red Flag Detector — Zurhaar Tools';
+const description = 'Spot warning signs in job postings before you apply — vague salary, unrealistic requirements, toxic culture signals. Browser extension, pay per scan, credits never expire.';
+const canonical = 'https://zurhaartools.com/job-red-flag-detector';
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+    <div class="max-w-3xl">
+      <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/20 mb-5">
+        Extension
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+        Spot the
+        <span class="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">red flags</span>
+        before you apply
+      </h1>
+      <p class="text-lg text-text-muted mb-10 max-w-2xl leading-relaxed">
+        A browser extension that reads any job posting and flags vague salaries, unrealistic requirements, and toxic culture signals — with a score out of 10 and quoted evidence. Works on LinkedIn, Indeed, Glassdoor, and 40+ other job boards.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="#pricing"
+          class="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity"
+        >
+          See pricing
+        </a>
+        <a
+          href="https://chromewebstore.google.com/detail/job-red-flag-detector/opcklnckbijmdlmdjgmhdnkclkehemni"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-6 py-3 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+        >
+          Get it on Chrome &rarr;
+        </a>
+      </div>
+      <p class="text-sm text-text-muted mt-6">
+        Also available on <a href="https://microsoftedge.microsoft.com/addons/detail/job-red-flag-detector/nnppdamkeahgdhcgjcfijjeapcijngpk" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Edge Add-ons</a>. Credits never expire.
+      </p>
+    </div>
+  </section>
+
+  <!-- What it does -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">What it does</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Red flags</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Quoted text + severity for every concern: missing salary, scope creep, "rockstar" language, unpaid trial work, mismatched seniority.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Green flags</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Concrete signs of a healthy employer: salary band, hybrid clarity, defined scope, realistic stack, named hiring manager.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Score out of 10</h3>
+          <p class="text-sm text-text-muted leading-relaxed">One number that summarises the posting at a glance, color-coded so you know whether to keep reading or close the tab.</p>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="font-semibold mb-2 text-orange-400">Works on any site</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Built-in support for 40+ job boards plus a fallback extractor that finds the job description on any company careers page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">How it works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div>
+          <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 text-primary-light rounded-xl flex items-center justify-center mb-4 text-lg font-bold">1</div>
+          <h3 class="font-semibold mb-2">Install &amp; activate</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Add the extension from the Chrome Web Store or Edge Add-ons. Buy a scan pack, paste your license key into the side panel.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 text-primary-light rounded-xl flex items-center justify-center mb-4 text-lg font-bold">2</div>
+          <h3 class="font-semibold mb-2">Open a job posting</h3>
+          <p class="text-sm text-text-muted leading-relaxed">On LinkedIn, Indeed, Glassdoor — or any company careers page. Click the toolbar icon to open the side panel.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 text-primary-light rounded-xl flex items-center justify-center mb-4 text-lg font-bold">3</div>
+          <h3 class="font-semibold mb-2">Click Scan, read the report</h3>
+          <p class="text-sm text-text-muted leading-relaxed">One credit per scan. Score, red flags, green flags appear in seconds — quoted from the actual posting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="border-t border-border scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Pricing</h2>
+        <p class="text-text-muted">Pay per scan. No subscription. Credits never expire.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <!-- 50 scans -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-lg font-semibold mb-1">Starter</h3>
+          <p class="text-sm text-text-muted mb-4">50 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€1.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 50 job posting scans</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Credits don't expire</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> All job sites supported</li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/cNidR2bUkajG51r3KI4gg06"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- 150 scans (popular) -->
+        <div class="bg-card border-2 border-primary/50 rounded-xl p-6 flex flex-col relative hover:border-primary transition-all">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 text-xs font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full">Best value</span>
+          <h3 class="text-lg font-semibold mb-1">Standard</h3>
+          <p class="text-sm text-text-muted mb-4">150 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€4.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 150 job posting scans</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Credits don't expire</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> All job sites supported</li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/00waEQ3nOfE0alL1CA4gg07"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 rounded-lg transition-opacity"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- 500 scans -->
+        <div class="bg-card border border-border rounded-xl p-6 flex flex-col hover:border-border-hover transition-all">
+          <h3 class="text-lg font-semibold mb-1">Pro</h3>
+          <p class="text-sm text-text-muted mb-4">500 scans</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold">€9.99</span>
+            <span class="text-text-muted text-sm ml-1">one-time</span>
+          </div>
+          <ul class="space-y-2 text-sm text-text-muted mb-6 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> 500 job posting scans</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> Credits don't expire</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">&#10003;</span> All job sites supported</li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/cNi9AM2jK1NadxX3KI4gg08"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border hover:border-border-hover hover:text-text rounded-lg transition-all"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="border-t border-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">Questions</h2>
+      <div class="space-y-7">
+        <div>
+          <h3 class="font-semibold mb-2">Why pay per scan instead of a subscription?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Because job searches aren't constant. Most people scan heavily for a few weeks, then nothing for months. Credits sit on your license key until you use them — no auto-renewal, no recurring charges.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Do credits expire?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No. If you pay for something, you have it forever — that's the rule. Your credits stay on your account until you use them.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Which job sites does it work on?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">LinkedIn, Indeed, Glassdoor, Monster, StepStone, Greenhouse, Lever, Workday, Wellfound, Otta, and 40+ more out of the box. For anything else — including company careers pages — a fallback extractor finds the job description automatically.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">How accurate is the analysis?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Every flag is backed by quoted text from the posting, so you can verify the reasoning yourself. The score and severity ratings are guidance, not gospel — use them to decide what to read more carefully, not to auto-reject jobs.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What data do you collect?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Only the job posting text you actively choose to scan, plus your license key. Nothing is stored after the scan completes — see the <a href="/privacy" class="text-primary-light hover:text-primary transition-colors">privacy policy</a> for details.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Does it auto-scan every job I open?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">No. You click Scan when you want a report — never automatically. That way credits only get used when you ask for one.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Can I buy more credits later?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Yes. Any additional purchase with the same email tops up your existing license key automatically. No need to manage multiple keys.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">What's your refund policy?</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Digital products are non-refundable per EU instant-delivery terms, but if something genuinely doesn't work email <a href="mailto:andreas@zurhaartools.com" class="text-primary-light hover:text-primary transition-colors">andreas@zurhaartools.com</a> and it'll get sorted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CrossSell currentProduct="jrf" />
+</Layout>
