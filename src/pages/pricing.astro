@@ -257,7 +257,8 @@ import Layout from '../layouts/Layout.astro';
             <div class="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 text-primary-light rounded-lg flex items-center justify-center shrink-0 text-sm font-bold">2</div>
             <div>
               <h3 class="font-semibold mb-1">Install the extension</h3>
-              <p class="text-sm text-text-muted">Get the ToS Scanner from the Chrome Web Store and enter your license key.</p>
+              {/* TODO(andreas): Paste the live ToS Scanner Chrome Web Store URL here (approved May 21 — copy from dashboard). Then wrap "Chrome Web Store" below in an <a href> matching the JRF treatment on line 138. Edge link will be added when Edge approves. */}
+              <p class="text-sm text-text-muted">Get the ToS Scanner from the Chrome Web Store (Edge Add-ons coming soon) and enter your license key.</p>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -285,7 +286,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div>
           <h3 class="font-semibold mb-2">Can I use one license key across products?</h3>
-          <p class="text-sm text-text-muted">Each product has its own license key and credit balance. Buy scan packs for each product separately.</p>
+          <p class="text-sm text-text-muted">Each extension has its own license key and credit balance. If you use both Job Red Flag Detector and ToS Scanner, you'll have one key per extension. Buy scan packs for each one separately.</p>
         </div>
         <div>
           <h3 class="font-semibold mb-2">What does a scan include?</h3>

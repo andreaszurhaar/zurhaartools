@@ -34,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
           <ol class="text-sm text-text-muted text-left space-y-2 max-w-sm mx-auto">
             <li class="flex items-start gap-2">
               <span class="text-primary-light font-bold">1.</span>
-              <span>Install the extension from the <a href="https://chromewebstore.google.com/detail/job-red-flag-detector/opcklnckbijmdlmdjgmhdnkclkehemni" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Chrome Web Store</a> or <a href="https://microsoftedge.microsoft.com/addons/detail/job-red-flag-detector/nnppdamkeahgdhcgjcfijjeapcijngpk" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Edge Add-ons</a></span>
+              <span id="install-instructions">Install the extension from the <a href="https://chromewebstore.google.com/detail/job-red-flag-detector/opcklnckbijmdlmdjgmhdnkclkehemni" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Chrome Web Store</a> or <a href="https://microsoftedge.microsoft.com/addons/detail/job-red-flag-detector/nnppdamkeahgdhcgjcfijjeapcijngpk" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Edge Add-ons</a></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-primary-light font-bold">2.</span>
@@ -65,6 +65,34 @@ import Layout from '../layouts/Layout.astro';
       'tos-scanner': 'ToS Scanner',
     };
 
+    // TODO(andreas): Paste the real ToS Scanner Chrome Web Store URL into chrome (approved May 21).
+    // Add edge URL when Edge approves. Match the JRF entry shape.
+    const PRODUCT_INSTALL_LINKS = {
+      'job-red-flag-detector': {
+        chrome: 'https://chromewebstore.google.com/detail/job-red-flag-detector/opcklnckbijmdlmdjgmhdnkclkehemni',
+        edge: 'https://microsoftedge.microsoft.com/addons/detail/job-red-flag-detector/nnppdamkeahgdhcgjcfijjeapcijngpk',
+      },
+      'tos-scanner': {
+        chrome: null,
+        edge: null,
+      },
+    };
+
+    function renderInstallInstructions(productId) {
+      const el = document.getElementById('install-instructions');
+      if (!el) return;
+      const links = PRODUCT_INSTALL_LINKS[productId];
+      const linkClass = 'text-primary-light hover:text-primary transition-colors';
+      if (!links) return;
+      const chromePart = links.chrome
+        ? `<a href="${links.chrome}" target="_blank" rel="noopener noreferrer" class="${linkClass}">Chrome Web Store</a>`
+        : 'Chrome Web Store (link coming soon — check your email for direct install link)';
+      const edgePart = links.edge
+        ? ` or <a href="${links.edge}" target="_blank" rel="noopener noreferrer" class="${linkClass}">Edge Add-ons</a>`
+        : '';
+      el.innerHTML = `Install the extension from the ${chromePart}${edgePart}`;
+    }
+
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get('session_id');
 
@@ -81,6 +109,7 @@ import Layout from '../layouts/Layout.astro';
             document.getElementById('product-name').textContent = productName;
             document.getElementById('license-key').textContent = data.license_key;
             document.getElementById('credits-info').textContent = `${data.credits_remaining} scans available`;
+            renderInstallInstructions(data.product);
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('license-info').classList.remove('hidden');
           } else if (attempts < maxAttempts) {
