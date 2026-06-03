@@ -6,6 +6,14 @@ import CrossSell from '../components/CrossSell.astro';
 const title = 'Chrome Extension Kit — Zurhaar Tools';
 const description = 'Ship a paid Chrome extension this month — the exact stack behind two live Zurhaar Tools products. Template repo, working backend, lifetime GitHub access.';
 const canonical = 'https://zurhaartools.com/chrome-extension-kit';
+
+// Kit launch toggle (V12). Pre-launch: every CTA shows the waitlist.
+// At launch: paste the real Gumroad product URL into `kitGumroadUrl` and flip
+// `kitLive` to true — that single change swaps all CTAs to Buy buttons.
+// One Gumroad product with 3 versions (Starter/Pro/Studio); the buyer picks the
+// version on Gumroad, so every Buy button points at the same URL.
+const kitLive = false;
+const kitGumroadUrl = 'https://gumroad.com/l/chrome-extension-kit'; // TODO(andreas): real product URL at launch
 ---
 
 <Layout title={title} description={description} canonical={canonical}>
@@ -24,7 +32,13 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
       </p>
 
       <div class="max-w-lg">
-        <WaitlistForm id="hero-waitlist" source="chrome-extension-kit-landing" />
+        {kitLive ? (
+          <a href={kitGumroadUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors">
+            Buy on Gumroad →
+          </a>
+        ) : (
+          <WaitlistForm id="hero-waitlist" source="chrome-extension-kit-landing" />
+        )}
       </div>
 
       <p class="text-sm text-text-muted mt-6">
@@ -169,13 +183,19 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
             <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> License: 1 developer</li>
             <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> 30 days email support</li>
           </ul>
-          <button
-            type="button"
-            disabled
-            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg cursor-not-allowed"
-          >
-            Join the waitlist below
-          </button>
+          {kitLive ? (
+            <a href={kitGumroadUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-purple-300 border border-purple-500/40 hover:border-purple-500 hover:text-purple-200 rounded-lg transition-colors">
+              Buy Starter →
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg cursor-not-allowed"
+            >
+              Join the waitlist below
+            </button>
+          )}
         </div>
 
         <!-- Pro (best value) -->
@@ -194,13 +214,19 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
             <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> First-paying-customer playbook</li>
             <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Featured Build slot on the developers page (if you opt in)</li>
           </ul>
-          <button
-            type="button"
-            disabled
-            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-purple-600/60 rounded-lg cursor-not-allowed"
-          >
-            Join the waitlist below
-          </button>
+          {kitLive ? (
+            <a href={kitGumroadUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors">
+              Buy Pro →
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-purple-600/60 rounded-lg cursor-not-allowed"
+            >
+              Join the waitlist below
+            </button>
+          )}
         </div>
 
         <!-- Studio -->
@@ -217,13 +243,19 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
             <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> Lifetime email support</li>
             <li class="flex items-start gap-2"><span class="text-purple-400 shrink-0">&#10003;</span> 1 hour async code review within 30 days of purchase</li>
           </ul>
-          <button
-            type="button"
-            disabled
-            class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg cursor-not-allowed"
-          >
-            Join the waitlist below
-          </button>
+          {kitLive ? (
+            <a href={kitGumroadUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-purple-300 border border-purple-500/40 hover:border-purple-500 hover:text-purple-200 rounded-lg transition-colors">
+              Buy Studio →
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-text-muted border border-border rounded-lg cursor-not-allowed"
+            >
+              Join the waitlist below
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -314,10 +346,17 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
           <h3 class="font-semibold mb-2">Where does checkout happen?</h3>
           <p class="text-sm text-text-muted leading-relaxed">On Gumroad. After purchase, you'll get a confirmation email from Gumroad and a separate email from us with the GitHub invite link.</p>
         </div>
-        <div>
-          <h3 class="font-semibold mb-2">When can I buy?</h3>
-          <p class="text-sm text-text-muted leading-relaxed">Joining the waitlist is the only way to know. We'll email you the day it opens. No spam, no marketing list — one email per launch.</p>
-        </div>
+        {kitLive ? (
+          <div>
+            <h3 class="font-semibold mb-2">What payment methods do you accept?</h3>
+            <p class="text-sm text-text-muted leading-relaxed">Checkout runs on Gumroad, which accepts all major credit and debit cards plus PayPal. Gumroad also handles EU VAT and your receipt automatically.</p>
+          </div>
+        ) : (
+          <div>
+            <h3 class="font-semibold mb-2">When can I buy?</h3>
+            <p class="text-sm text-text-muted leading-relaxed">Joining the waitlist is the only way to know. We'll email you the day it opens. No spam, no marketing list — one email per launch.</p>
+          </div>
+        )}
       </div>
     </div>
   </section>
@@ -325,11 +364,25 @@ const canonical = 'https://zurhaartools.com/chrome-extension-kit';
   <!-- Final CTA + waitlist -->
   <section class="border-t border-border">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-      <h2 class="text-3xl font-bold mb-4">Be first when it launches</h2>
-      <p class="text-text-muted mb-8 leading-relaxed">
-        Drop your email below. We'll send one message the day the kit goes live. That's the whole list.
-      </p>
-      <WaitlistForm id="footer-waitlist" source="chrome-extension-kit-landing" />
+      {kitLive ? (
+        <Fragment>
+          <h2 class="text-3xl font-bold mb-4">Ready to ship your extension?</h2>
+          <p class="text-text-muted mb-8 leading-relaxed">
+            Lifetime access to the repo and every update. 14-day refund. Pay once.
+          </p>
+          <a href={kitGumroadUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors">
+            Buy on Gumroad →
+          </a>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <h2 class="text-3xl font-bold mb-4">Be first when it launches</h2>
+          <p class="text-text-muted mb-8 leading-relaxed">
+            Drop your email below. We'll send one message the day the kit goes live. That's the whole list.
+          </p>
+          <WaitlistForm id="footer-waitlist" source="chrome-extension-kit-landing" />
+        </Fragment>
+      )}
     </div>
   </section>
 
