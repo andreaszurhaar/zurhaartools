@@ -43,6 +43,9 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://zurhaartools.com/og-image.png" />
+
+    <!-- Cloudflare Web Analytics (cookieless) -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "662c928ce3804cf3a3c4bf0e54c8a18d"}'></script>
   </head>
   <body class="bg-surface text-text min-h-screen flex flex-col">
     <!-- Subtle dot grid background -->
