@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Purchase Complete — Zurhaar Tools" description="Your purchase was successful. Here is your license key." noindex={true}>
+  {/* The URL carries the Stripe session_id, which /api/license resolves to a
+      full license key — never leak it via the Referer of outbound links. */}
+  <meta slot="head" name="referrer" content="no-referrer" />
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="max-w-lg mx-auto text-center">
       <div class="w-16 h-16 bg-green-500/20 border border-green-500/30 rounded-full flex items-center justify-center mx-auto mb-6">
