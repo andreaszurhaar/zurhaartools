@@ -4,10 +4,29 @@ import CrossSell from '../components/CrossSell.astro';
 
 const title = 'Job Red Flag Detector — Zurhaar Tools';
 const description = 'Spot warning signs in job postings before you apply — vague salary, unrealistic requirements, toxic culture signals. Browser extension, pay per scan, credits never expire.';
-const canonical = 'https://zurhaartools.com/job-red-flag-detector';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Job Red Flag Detector',
+  description,
+  url: 'https://zurhaartools.com/job-red-flag-detector/',
+  applicationCategory: 'BrowserApplication',
+  operatingSystem: 'Chrome, Edge',
+  installUrl: 'https://chromewebstore.google.com/detail/job-red-flag-detector/opcklnckbijmdlmdjgmhdnkclkehemni',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: '1.99',
+    highPrice: '9.99',
+    offerCount: 3,
+  },
+  author: { '@type': 'Person', name: 'Andreas Zurhaar' },
+};
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
     <div class="max-w-3xl">
@@ -66,6 +85,27 @@ const canonical = 'https://zurhaartools.com/job-red-flag-detector';
           <h3 class="font-semibold mb-2 text-orange-400">Works on any site</h3>
           <p class="text-sm text-text-muted leading-relaxed">Built-in support for 40+ job boards plus a fallback extractor that finds the job description on any company careers page.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-3xl font-bold mb-12 text-center">See it in action</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <figure class="bg-card border border-border rounded-xl overflow-hidden">
+          <img src="/media/job-red-flag-detector/01-product-overview.jpg" alt="Job Red Flag Detector side panel next to a job posting" width="1200" height="900" loading="lazy" class="w-full h-auto" />
+          <figcaption class="text-sm text-text-muted p-4">The side panel opens next to any job posting.</figcaption>
+        </figure>
+        <figure class="bg-card border border-border rounded-xl overflow-hidden">
+          <img src="/media/job-red-flag-detector/02-scan-results-jobleads.jpg" alt="Scan results with score and red flags on a job board posting" width="1200" height="900" loading="lazy" class="w-full h-auto" />
+          <figcaption class="text-sm text-text-muted p-4">Score out of 10 with quoted evidence per flag.</figcaption>
+        </figure>
+        <figure class="bg-card border border-border rounded-xl overflow-hidden">
+          <img src="/media/job-red-flag-detector/03-scan-results-linkedin.jpg" alt="Scan results on a LinkedIn job posting" width="1200" height="900" loading="lazy" class="w-full h-auto" />
+          <figcaption class="text-sm text-text-muted p-4">Works on LinkedIn, Indeed, Glassdoor, and 40+ boards.</figcaption>
+        </figure>
       </div>
     </div>
   </section>

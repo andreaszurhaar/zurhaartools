@@ -13,37 +13,69 @@ import ProductCard from '../components/ProductCard.astro';
     </div>
 
     <!-- Filter tabs -->
-    <div class="flex flex-wrap gap-2 mb-8">
-      <span class="px-3 py-1.5 text-sm font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full">All</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Extensions</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Scripts</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Templates</span>
-      <span class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Tools</span>
+    <div class="flex flex-wrap gap-2 mb-8" id="product-filters">
+      <button data-filter="all" class="px-3 py-1.5 text-sm font-medium bg-gradient-to-r from-primary to-accent text-white rounded-full cursor-pointer">All</button>
+      <button data-filter="extension" class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Extensions</button>
+      <button data-filter="kit" class="px-3 py-1.5 text-sm font-medium text-text-muted bg-surface-raised border border-border rounded-full hover:border-border-hover cursor-pointer transition-colors">Kits</button>
     </div>
 
     <!-- Product grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <ProductCard
-        title="ToS Scanner"
-        description="Browser extension that scans Terms of Service and Privacy Policies, highlighting dangers in plain language."
-        category="extension"
-        price="From €1.99"
-        href="/tos-scanner"
-      />
-      <ProductCard
-        title="Job Red Flag Detector"
-        description="Spots warning signs in job postings — vague salary, unrealistic requirements, toxic culture signals."
-        category="extension"
-        price="From €1.99"
-        href="/job-red-flag-detector"
-      />
-      <ProductCard
-        title="Review Summarizer"
-        description="Reads hundreds of product or hotel reviews and gives you a 5-bullet summary of pros and cons."
-        category="extension"
-        comingSoon={true}
-      />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid">
+      <div data-category="extension">
+        <ProductCard
+          title="ToS Scanner"
+          description="Browser extension that scans Terms of Service and Privacy Policies, highlighting dangers in plain language."
+          category="extension"
+          price="From €1.99"
+          href="/tos-scanner"
+        />
+      </div>
+      <div data-category="extension">
+        <ProductCard
+          title="Job Red Flag Detector"
+          description="Spots warning signs in job postings — vague salary, unrealistic requirements, toxic culture signals."
+          category="extension"
+          price="From €1.99"
+          href="/job-red-flag-detector"
+        />
+      </div>
+      <div data-category="kit">
+        <ProductCard
+          title="Chrome Extension Kit"
+          description="Ship a paid Chrome extension this month — the exact stack behind the two live Zurhaar Tools extensions. Template repo, working backend, lifetime GitHub access."
+          category="kit"
+          price="From €99"
+          href="/chrome-extension-kit"
+        />
+      </div>
+      <div data-category="extension">
+        <ProductCard
+          title="Review Summarizer"
+          description="Reads hundreds of product or hotel reviews and gives you a 5-bullet summary of pros and cons."
+          category="extension"
+          comingSoon={true}
+        />
+      </div>
     </div>
+
+    <script>
+      const filters = document.querySelectorAll<HTMLButtonElement>('#product-filters button');
+      const cards = document.querySelectorAll<HTMLElement>('#product-grid > [data-category]');
+      const activeClasses = ['bg-gradient-to-r', 'from-primary', 'to-accent', 'text-white'];
+      const inactiveClasses = ['text-text-muted', 'bg-surface-raised', 'border', 'border-border', 'hover:border-border-hover', 'transition-colors'];
+
+      filters.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          filters.forEach((b) => {
+            b.classList.remove(...activeClasses, ...inactiveClasses);
+            b.classList.add(...(b === btn ? activeClasses : inactiveClasses));
+          });
+          cards.forEach((card) => {
+            card.classList.toggle('hidden', btn.dataset.filter !== 'all' && card.dataset.category !== btn.dataset.filter);
+          });
+        });
+      });
+    </script>
 
     <div class="mt-16 text-center">
       <p class="text-text-muted">More products coming soon. Follow along on <a href="https://github.com/andreaszurhaar" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">GitHub</a>.</p>

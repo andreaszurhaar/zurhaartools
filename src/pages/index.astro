@@ -14,7 +14,7 @@ import ProductCard from '../components/ProductCard.astro';
         for you
       </h1>
       <p class="text-lg text-text-muted mb-10 max-w-2xl leading-relaxed">
-        Browser extensions, scripts, and digital tools — built to automate what you shouldn't waste time on. New tools added regularly.
+        Browser extensions, scripts, and digital tools — built to automate what you shouldn't waste time on. Browser extensions for everyday tasks, plus developer tools to build your own.
       </p>
       <div class="flex flex-wrap gap-4">
         <a
@@ -33,14 +33,15 @@ import ProductCard from '../components/ProductCard.astro';
     </div>
   </section>
 
-  <!-- Featured Products -->
+  <!-- For everyone -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl font-bold">Latest Products</h2>
+    <div class="flex items-center justify-between mb-2">
+      <p class="text-sm font-medium tracking-wide uppercase text-primary-light">For everyone</p>
       <a href="/products" class="text-sm text-primary-light hover:text-primary transition-colors">
         View all &rarr;
       </a>
     </div>
+    <p class="text-text-muted mb-8">Browser extensions that save you time on everyday tasks.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <ProductCard
         title="ToS Scanner"
@@ -62,6 +63,28 @@ import ProductCard from '../components/ProductCard.astro';
         category="extension"
         comingSoon={true}
       />
+    </div>
+  </section>
+
+  <!-- For developers -->
+  <section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="flex items-center justify-between mb-2">
+        <p class="text-sm font-medium tracking-wide uppercase text-primary-light">For developers</p>
+        <a href="/developers" class="text-sm text-primary-light hover:text-primary transition-colors">
+          View all &rarr;
+        </a>
+      </div>
+      <p class="text-text-muted mb-8">Tools to build and ship your own Chrome extensions.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ProductCard
+          title="Chrome Extension Kit"
+          description="Ship a paid Chrome extension this month — the exact stack behind the two live Zurhaar Tools extensions. Template repo, working backend, lifetime GitHub access."
+          category="kit"
+          price="From €99"
+          href="/chrome-extension-kit"
+        />
+      </div>
     </div>
   </section>
 

@@ -4,10 +4,29 @@ import CrossSell from '../components/CrossSell.astro';
 
 const title = 'ToS Scanner — Zurhaar Tools';
 const description = 'Instantly understand any Terms of Service or Privacy Policy. Spot hidden clauses, data sharing, and unfair terms in plain language. Browser extension, pay per scan, credits never expire.';
-const canonical = 'https://zurhaartools.com/tos-scanner';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'ToS Scanner',
+  description,
+  url: 'https://zurhaartools.com/tos-scanner/',
+  applicationCategory: 'BrowserApplication',
+  operatingSystem: 'Chrome',
+  installUrl: 'https://chromewebstore.google.com/detail/tos-scanner/kcmipgpdgnphnjjeppflojmoecllppmb',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: '1.99',
+    highPrice: '9.99',
+    offerCount: 3,
+  },
+  author: { '@type': 'Person', name: 'Andreas Zurhaar' },
+};
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
     <div class="max-w-3xl">

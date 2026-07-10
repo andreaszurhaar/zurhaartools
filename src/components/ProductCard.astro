@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   description: string;
-  category: 'extension' | 'script' | 'template' | 'tool' | 'app';
+  category: 'extension' | 'script' | 'template' | 'tool' | 'app' | 'kit';
   price?: string;
   href?: string;
   comingSoon?: boolean;
@@ -16,6 +16,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
   template: { label: 'Template', color: 'bg-amber-500/15 text-amber-400 border border-amber-500/20' },
   tool: { label: 'Tool', color: 'bg-red-500/15 text-red-400 border border-red-500/20' },
   app: { label: 'App', color: 'bg-yellow-500/15 text-yellow-400 border border-yellow-500/20' },
+  kit: { label: 'Kit', color: 'bg-purple-500/15 text-purple-400 border border-purple-500/20' },
 };
 
 const cat = categoryLabels[category];
