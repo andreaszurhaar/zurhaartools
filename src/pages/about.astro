@@ -2,42 +2,64 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About — Zurhaar Tools" description="About Andreas Zurhaar — software engineer building tools to save you time.">
+<Layout title="About — Zurhaar Tools" description="About Andreas Zurhaar and Zurhaar Tools — small, honest browser tools that take care of the boring stuff, built and supported by one person.">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="max-w-2xl">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">About</h1>
 
       <div class="space-y-6">
         <p class="text-lg text-text-muted leading-relaxed">
-          Hi, I'm Andreas Zurhaar — a software engineer based in the Netherlands. I build tools that automate repetitive tasks and save people time.
+          I'm Andreas Zurhaar — an independent software engineer in Limburg, the Netherlands. Zurhaar Tools is where I build small, honest tools that take care of the boring stuff so you don't have to.
         </p>
 
         <p class="text-text-muted leading-relaxed">
-          Zurhaar Tools is my growing catalog of browser extensions, scripts, and digital products. Each tool is designed to solve a specific problem — no bloat, no subscriptions you don't need, just tools that work.
+          Every tool here solves one specific problem and does it well — no bloat, no dark patterns, no subscriptions you'll forget to cancel. You pay once for what you use, and your credits never expire.
         </p>
 
         <h2 class="text-xl font-semibold pt-4">What I build</h2>
         <ul class="space-y-4 text-text-muted">
           <li class="flex items-start gap-3">
             <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
-            <span><strong class="text-text">Browser extensions</strong> — Chrome extensions that work while you browse.</span>
+            <span>
+              <strong class="text-text">Browser extensions</strong> — Chrome and Edge extensions that quietly do their job while you browse. Two are live today:
+              <a href="/tos-scanner" class="text-primary-light hover:text-primary transition-colors">ToS Scanner</a>
+              reads the fine print so you don't have to, and
+              <a href="/job-red-flag-detector" class="text-primary-light hover:text-primary transition-colors">Job Red Flag Detector</a>
+              spots warning signs in job postings.
+            </span>
           </li>
           <li class="flex items-start gap-3">
             <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
-            <span><strong class="text-text">Scripts & tools</strong> — Automation scripts and utilities that handle tedious work.</span>
+            <span>
+              <strong class="text-text">Developer tools</strong> — the
+              <a href="/chrome-extension-kit" class="text-primary-light hover:text-primary transition-colors">Chrome Extension Kit</a>
+              packages the exact stack behind those extensions, so other developers can ship their own paid extension without reinventing the plumbing.
+            </span>
+          </li>
+        </ul>
+
+        <h2 class="text-xl font-semibold pt-4">What you can count on</h2>
+        <ul class="space-y-4 text-text-muted">
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
+            <span><strong class="text-text">Privacy first.</strong> Tools ask for the minimum they need, and this website runs no tracking cookies.</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
-            <span><strong class="text-text">Templates & resources</strong> — Ready-to-use prompt packs, Notion templates, and more.</span>
+            <span><strong class="text-text">Pay once.</strong> Simple credit packs instead of subscriptions — buy what you need, and unused credits never expire.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-primary to-accent shrink-0"></span>
+            <span><strong class="text-text">A real person behind it.</strong> Zurhaar Tools is a registered Dutch business, built and supported by me. When you email support, you reach me directly.</span>
           </li>
         </ul>
 
         <h2 class="text-xl font-semibold pt-4">Get in touch</h2>
         <p class="text-text-muted leading-relaxed">
-          Have a question or suggestion? Reach out at
+          Have a question, a bug, or an idea for a tool? Email me at
           <a href="mailto:andreas@zurhaartools.com" class="text-primary-light hover:text-primary transition-colors">andreas@zurhaartools.com</a>
           or find me on
-          <a href="https://github.com/andreaszurhaar" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">GitHub</a>.
+          <a href="https://github.com/andreaszurhaar" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">GitHub</a>. I read everything.
         </p>
       </div>
     </div>
