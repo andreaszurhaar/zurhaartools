@@ -1,0 +1,50 @@
+---
+// A static architecture panel for the Chrome Extension Kit hero. Shows "the
+// exact stack" the kit ships — frontend → backend → integrations — instead of
+// leaving the hero empty. Illustrative; mirrors ScanPreview's window styling
+// but in the Kit's purple palette.
+const layers = [
+  { tag: 'Frontend', title: 'Chrome Extension', sub: 'MV3 · 7-state side panel' },
+  { tag: 'Backend', title: 'Cloudflare Worker', sub: 'licenses · credits · refunds' },
+  { tag: 'Integrations', title: 'Stripe · D1 · Claude API', sub: 'payments · database · AI' },
+];
+---
+
+<div class="relative select-none" aria-hidden="true">
+  <!-- soft glow -->
+  <div class="absolute -inset-6 bg-gradient-to-tr from-purple-500/15 via-purple-500/10 to-transparent blur-3xl rounded-full"></div>
+
+  <div class="relative bg-card border border-border rounded-2xl shadow-2xl overflow-hidden">
+    <!-- window chrome -->
+    <div class="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface-raised">
+      <span class="w-2.5 h-2.5 rounded-full bg-red-500/50"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-amber-500/50"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-green-500/50"></span>
+      <span class="ml-2 text-xs font-medium text-text-muted">chrome-extension-kit</span>
+    </div>
+
+    <div class="p-5">
+      {layers.map((l, i) => (
+        <>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-surface-raised border border-border">
+            <span class="shrink-0 w-24 text-center text-[10px] font-semibold uppercase tracking-wide px-1.5 py-1 rounded bg-purple-500/15 text-purple-300 border border-purple-500/25">
+              {l.tag}
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-text leading-snug">{l.title}</p>
+              <p class="text-xs text-text-muted leading-snug">{l.sub}</p>
+            </div>
+          </div>
+          {i < layers.length - 1 && (
+            <div class="flex justify-center py-1 text-purple-400/60 text-xs leading-none">↓</div>
+          )}
+        </>
+      ))}
+
+      <div class="mt-4 flex items-start gap-2.5 p-3 rounded-lg bg-purple-500/5 border border-purple-500/20">
+        <span class="shrink-0 mt-0.5 text-purple-300 text-sm leading-none">✓</span>
+        <p class="text-xs text-text leading-snug">Template repo, working backend, and written-down lessons — yours with lifetime access.</p>
+      </div>
+    </div>
+  </div>
+</div>
