@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CrossSell from '../components/CrossSell.astro';
+import ScanPreview from '../components/ScanPreview.astro';
 
 const title = 'Job Red Flag Detector — Zurhaar Tools';
 const description = 'Spot warning signs in job postings before you apply — vague salary, unrealistic requirements, toxic culture signals. Browser extension, pay per scan, credits never expire.';
@@ -29,7 +30,8 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-    <div class="max-w-3xl">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
+      <div class="max-w-2xl">
       <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/20 mb-5">
         Extension
       </span>
@@ -60,6 +62,19 @@ const jsonLd = {
       <p class="text-sm text-text-muted mt-6">
         Also available on <a href="https://microsoftedge.microsoft.com/addons/detail/job-red-flag-detector/nnppdamkeahgdhcgjcfijjeapcijngpk" target="_blank" rel="noopener noreferrer" class="text-primary-light hover:text-primary transition-colors">Edge Add-ons</a>. Credits never expire.
       </p>
+      </div>
+      <div class="mt-12 lg:mt-0">
+        <ScanPreview
+          appName="Job Red Flag Detector"
+          score={4}
+          scoreNote="A few things to check before applying"
+          redFlags={[
+            { severity: 'High', text: '“Rockstar who can wear many hats in a fast-paced family.”', meaning: 'Vague role — often means understaffed and long hours.' },
+            { severity: 'Medium', text: '“Competitive salary, depending on experience.”', meaning: 'No salary range — a pay-transparency red flag.' },
+          ]}
+          greenFlag={{ text: '“Fully remote with flexible working hours.”', meaning: 'Clear, worker-friendly arrangement.' }}
+        />
+      </div>
     </div>
   </section>
 
@@ -239,7 +254,7 @@ const jsonLd = {
         </div>
         <div>
           <h3 class="font-semibold mb-2">What data do you collect?</h3>
-          <p class="text-sm text-text-muted leading-relaxed">Only the job posting text you actively choose to scan, plus your license key. Nothing is stored after the scan completes — see the <a href="/privacy" class="text-primary-light hover:text-primary transition-colors">privacy policy</a> for details.</p>
+          <p class="text-sm text-text-muted leading-relaxed">Only the job posting text you actively choose to scan, plus your license key. Nothing is stored after the scan completes — see the <a href="/privacy/" class="text-primary-light hover:text-primary transition-colors">privacy policy</a> for details.</p>
         </div>
         <div>
           <h3 class="font-semibold mb-2">Does it auto-scan every job I open?</h3>
