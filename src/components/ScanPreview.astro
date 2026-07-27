@@ -1,0 +1,89 @@
+---
+// A faithful, static recreation of a ToS Scanner side-panel result.
+// Used as a hero visual so the page shows what the product actually produces
+// instead of only describing it. Content is illustrative, not a live scan.
+interface Flag {
+  severity?: 'High' | 'Medium' | 'Low';
+  text: string;
+  meaning: string;
+}
+interface Props {
+  appName?: string;
+  score?: number;
+  scoreNote?: string;
+  redFlags?: Flag[];
+  greenFlag?: { text: string; meaning: string };
+}
+
+const {
+  appName = 'ToS Scanner',
+  score = 3,
+  scoreNote = 'Several clauses worth a closer look',
+  redFlags = [
+    { severity: 'High', text: '“We may share your personal data with third-party partners.”', meaning: 'Your data can be sold or shared broadly.' },
+    { severity: 'Medium', text: '“We reserve the right to change these terms at any time.”', meaning: 'Terms can change without notice to you.' },
+  ],
+  greenFlag = { text: '“You may request deletion of your account and data.”', meaning: 'Clear right to erasure — a good sign.' },
+} = Astro.props;
+
+const severityStyle: Record<string, string> = {
+  High: 'bg-red-500/15 text-red-400 border-red-500/25',
+  Medium: 'bg-amber-500/15 text-amber-400 border-amber-500/25',
+  Low: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/25',
+};
+---
+
+<div class="relative select-none" aria-hidden="true">
+  <!-- soft glow -->
+  <div class="absolute -inset-6 bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-3xl rounded-full"></div>
+
+  <div class="relative bg-card border border-border rounded-2xl shadow-2xl overflow-hidden">
+    <!-- window chrome -->
+    <div class="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface-raised">
+      <span class="w-2.5 h-2.5 rounded-full bg-red-500/50"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-amber-500/50"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-green-500/50"></span>
+      <span class="ml-2 text-xs font-medium text-text-muted">{appName}</span>
+    </div>
+
+    <div class="p-5 space-y-4">
+      <!-- score -->
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 rounded-xl bg-accent/15 ring-1 ring-accent/30 flex items-baseline justify-center gap-0.5 text-accent">
+          <span class="text-2xl font-bold leading-none">{score}</span>
+          <span class="text-xs text-text-muted">/10</span>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-text">Fairness score</p>
+          <p class="text-xs text-text-muted">{scoreNote}</p>
+        </div>
+      </div>
+
+      <!-- red flags -->
+      <div class="space-y-2">
+        {redFlags.map((f) => (
+          <div class="flex items-start gap-2.5 p-3 rounded-lg bg-surface-raised border border-border">
+            {f.severity && (
+              <span class={`shrink-0 mt-0.5 text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded border ${severityStyle[f.severity]}`}>
+                {f.severity}
+              </span>
+            )}
+            <div>
+              <p class="text-xs text-text leading-snug">{f.text}</p>
+              <p class="text-[11px] text-text-muted mt-0.5 leading-snug">{f.meaning}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- green flag -->
+      <div class="flex items-start gap-2.5 p-3 rounded-lg bg-green-500/5 border border-green-500/20">
+        <span class="shrink-0 mt-0.5 text-green-400 text-sm leading-none">✓</span>
+        <div>
+          <p class="text-xs text-text leading-snug">{greenFlag.text}</p>
+          <p class="text-[11px] text-text-muted mt-0.5 leading-snug">{greenFlag.meaning}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

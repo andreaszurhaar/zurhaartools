@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
+import ScanPreview from '../components/ScanPreview.astro';
 ---
 
 <Layout>
   <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-    <div class="max-w-3xl">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
+      <div class="max-w-2xl">
       <p class="text-sm font-medium text-primary-light mb-4 tracking-wide uppercase">Smart Tools & Extensions</p>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
         Tools that do the
@@ -29,6 +31,10 @@ import ProductCard from '../components/ProductCard.astro';
         >
           About Me
         </a>
+      </div>
+      </div>
+      <div class="mt-12 lg:mt-0">
+        <ScanPreview />
       </div>
     </div>
   </section>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CrossSell from '../components/CrossSell.astro';
+import ScanPreview from '../components/ScanPreview.astro';
 
 const title = 'ToS Scanner — Zurhaar Tools';
 const description = 'Instantly understand any Terms of Service or Privacy Policy. Spot hidden clauses, data sharing, and unfair terms in plain language. Browser extension, pay per scan, credits never expire.';
@@ -29,7 +30,8 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
-    <div class="max-w-3xl">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
+      <div class="max-w-2xl">
       <span class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/20 mb-5">
         Extension
       </span>
@@ -59,6 +61,10 @@ const jsonLd = {
       <p class="text-sm text-text-muted mt-6">
         Available on the Chrome Web Store. Edge Add-ons coming soon. Credits never expire.
       </p>
+      </div>
+      <div class="mt-12 lg:mt-0">
+        <ScanPreview />
+      </div>
     </div>
   </section>
 
